@@ -13,7 +13,7 @@ random normal variable, a logical vector indicating whether elements of the samp
 library(tidyverse)
 
 hw1_df = tibble(
-  norm_samp = rnorm(8),
+  norm_samp = rnorm(8,0,1),
   vec_logical= norm_samp > 0,
  vec_char= c("1","2","3","4","5","6","7","8"),
   vec_factor=factor(c("high","medium","low","high","medium","low","high","medium"))
@@ -62,22 +62,25 @@ factor_numeric_multiply=factor_numeric*pull(hw1_df,norm_samp)
 
 ```{r problem2_df}
 hw1_problem2_df = tibble(
-  x= rnorm(500),
-  y= rnorm(500),
+  x= rnorm(500,0,1),
+  y= rnorm(500,0,1),
  vec_logical= x+y>1,
  vec_numeric= as.numeric(vec_logical),
  vec_factor= as.factor(vec_logical)
  )
 ```
- 
+
 Here is a short descriptive of my vector.
   
 *The dataset has `r nrow(hw1_problem2_df)` and `r ncol(hw1_problem2_df)`
 
 *The mean of x is `r mean(pull(hw1_problem2_df,x))`
+
 *The median of x is `r mean(pull(hw1_problem2_df,x))`
+
 *The standard deviation of x is `r mean(pull(hw1_problem2_df,x))`
-*The proportion of cases for which x + y > 1 is `mean(pull(hw1_problem2_df,vec_logical))`
+
+*The proportion of cases for which x + y > 1 is `r mean(pull(hw1_problem2_df,vec_logical))`
 
 The first is a scatterplot of `y` vs `x` (color points using logical variables).
 ```{r yx_scatter1}
@@ -94,5 +97,4 @@ The third scatterplot of `y` vs `x` (color points using the factor variables).
 ```{r yx_scatter3}
 ggplot(hw1_problem2_df, aes(x = x, y = y,color=vec_factor)) + geom_point()
 ```
-
 

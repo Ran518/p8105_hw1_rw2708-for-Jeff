@@ -12,6 +12,8 @@ random normal variable, a logical vector indicating whether elements of the samp
 ```{r Problem1_df}
 library(tidyverse)
 
+set.seed(123)
+
 hw1_df = tibble(
   norm_samp = rnorm(8,0,1),
   vec_logical= norm_samp > 0,
@@ -61,6 +63,8 @@ factor_numeric_multiply=factor_numeric*pull(hw1_df,norm_samp)
 *First I create a dataframe containing variables for my plots.
 
 ```{r problem2_df}
+set.seed(123)
+
 hw1_problem2_df = tibble(
   x= rnorm(500,0,1),
   y= rnorm(500,0,1),

@@ -17,7 +17,6 @@ The chunk below creates a dataframe containing a sample of size 8 from a
 random normal variable, a logical vector indicating whether elements of the sample are greater than 0, a character vector of length 8, and a factor vector of length 8, with 3 different factor “levels”. Besides, I also computed the mean of each variable in this dataframe.
 
 
-
 ```{r Probelm_1, collapse = TRUE}
 hw1_df = tibble(
   norm_samp = rnorm(8,0,1),
@@ -42,7 +41,9 @@ mean_factor
 ```
 
 
-We can get the mean of numerical and logical variables, but we can not compute the mean for character and factor variables.
+Findings: We can get the mean of numerical and logical variables, but we can not compute the mean for character and factor variables.
+
+
 
 Here is a code chunk that applies the as.numeric function to the logical, character, and factor variables.
 
@@ -54,7 +55,7 @@ as.numeric(pull(hw1_df, vec_factor))
 
 ```
 
-Explanation for the above code chunk: logical variables, character variables, and factor variables are all converted to numeric ones. Reason: the as.numeric function serves to convert these variables to numeric form. This explains what happened when I try to take the mean, since it is only reasonable to compute the mean of numeric variables, instead of the character and factor variables. After the conversion, I can calculate the mean of all of them. 
+Explanation for the above code chunk: logical variables, character variables, and factor variables are all coerced to numeric ones. Reason: the as.numeric function serves to convert these variables to numeric form. This explains what happened when I try to get the mean, since it is only reasonable to compute the mean of numeric variables, instead of the character and factor variables. After the conversion, I can calculate the mean of all of them. 
 
 The second code chunk is associated with the conversion of logical vectors.
 
@@ -79,7 +80,7 @@ factor_numeric_multiply
 
 *First I create a dataframe containing variables for my plots.
 
-```{r problem2_df}
+```{r problem2_df, collapse = TRUE}
 hw1_problem2_df = tibble(
   x = rnorm(500,0,1),
   y = rnorm(500,0,1),
@@ -87,6 +88,8 @@ hw1_problem2_df = tibble(
  vec_numeric = as.numeric(vec_logical),
  vec_factor = as.factor(vec_logical)
  )
+
+hw1_problem2_df
 ```
 
 Here is a short descriptive of my vector.
